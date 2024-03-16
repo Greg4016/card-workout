@@ -1,0 +1,115 @@
+:root * {
+    font-family: sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    display: flex;
+}
+
+
+#deal {
+    width: 25%;
+    height: 100%;
+
+    background-color: blueviolet;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#deck {
+    height: 200px;
+    aspect-ratio: 5/7;
+
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+#table {
+    width: 75%;
+    height: 100%;
+
+    background-color: aquamarine;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card-silhouette {
+    height: 200px;
+    aspect-ratio: 5/7;
+    margin: 0 70px 0 70px;
+
+    outline: 3px dashed rgba(0, 0, 0, 0.2);
+    outline-offset: -4px;
+    border-radius: 20px;
+}
+
+
+.card {
+    height: 200px;
+    aspect-ratio: 5/7;
+    position: absolute;
+    
+    pointer-events: none;
+    
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 20px;
+
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.card-front {
+    background-color: white;
+}
+
+.card-front > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-back {
+    background-color: black;
+    transform: rotateY(180deg);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+img.one {
+    width: 30%;
+    aspect-ratio: 1/1;
+}
+
+img.two {
+    width: 80%;
+    aspect-ratio: 1/1;
+}
