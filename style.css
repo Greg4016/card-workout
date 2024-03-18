@@ -23,13 +23,11 @@ body {
 }
 
 #deck {
-    height: 200px;
+    height: 20%;
     aspect-ratio: 5/7;
 
     background-color: white;
     border-radius: 20px;
-
-    content: 'hi';
 }
 
 
@@ -50,9 +48,10 @@ body {
 
 
 .card-silhouette {
-    height: 200px;
+    height: 20%;
     aspect-ratio: 5/7;
     margin: 0 4% 0 4%;
+    position: relative;
 
     outline: 3px dashed rgba(0, 0, 0, 0.2);
     outline-offset: -4px;
@@ -62,14 +61,22 @@ body {
 
 /* Cards */
 .card {
-    height: 200px;
+    height: 100%;
     aspect-ratio: 5/7;
     position: absolute;
     
+    color: #0E0E0E;
+    font-size: 15px;
+    font-weight: 900;
+
     pointer-events: none;
     
     transform-style: preserve-3d;
     transition: 0.5s;
+}
+
+.card.diamonds, .card.hearts {
+    color: #FF2C2C;
 }
 
 
@@ -80,9 +87,6 @@ body {
 
     backface-visibility: hidden;
     border-radius: 20px;
-
-    font-size: 40px;
-    font-weight: 900;
 
     pointer-events: none;
 
@@ -108,10 +112,10 @@ body {
 }
 
 
+/* Card middle symbols */
 .card-front > .symbols {
     width: 60%;
     aspect-ratio: 5/7;
-    background-color: brown;
 
     display: flex;
     justify-content: center;
@@ -151,4 +155,25 @@ body {
 
 .card.diamonds img {
     content: url(assets/diamonds.svg);
+}
+
+
+/* Card corners */
+.card .corners {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    left: 0;
+    top: 0;
+}
+
+.card .corner {
+    width: 10%;
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
