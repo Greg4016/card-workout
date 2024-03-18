@@ -10,7 +10,7 @@ body {
     display: flex;
 }
 
-
+/* Deck */
 #deal {
     width: 25%;
     height: 100%;
@@ -28,9 +28,13 @@ body {
 
     background-color: white;
     border-radius: 20px;
+
+    content: 'hi';
 }
 
 
+
+/* Table */
 #table {
     width: 75%;
     height: 100%;
@@ -41,13 +45,14 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
 }
 
 
 .card-silhouette {
     height: 200px;
     aspect-ratio: 5/7;
-    margin: 0 70px 0 70px;
+    margin: 0 4% 0 4%;
 
     outline: 3px dashed rgba(0, 0, 0, 0.2);
     outline-offset: -4px;
@@ -55,6 +60,7 @@ body {
 }
 
 
+/* Cards */
 .card {
     height: 200px;
     aspect-ratio: 5/7;
@@ -71,45 +77,78 @@ body {
     width: 100%;
     height: 100%;
     position: absolute;
+
     backface-visibility: hidden;
     border-radius: 20px;
+
+    font-size: 40px;
+    font-weight: 900;
 
     pointer-events: none;
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10%;
-    font-size: 40px;
-    font-weight: 900;
 }
 
-.card-front {
-    background-color: white;
-}
-
-.card-front > div {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
 
 .card-back {
     background-color: black;
-    transform: rotateY(180deg);
 }
+
 
 .card.flipped {
     transform: rotateY(180deg);
 }
 
-img.one {
-    width: 30%;
-    aspect-ratio: 1/1;
+
+.card-front {
+    background-color: white;
+    transform: rotateY(180deg);
 }
 
-img.two {
-    width: 80%;
+
+.card-front > .symbols {
+    width: 60%;
+    aspect-ratio: 5/7;
+    background-color: brown;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card .col {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.card img {
+    width: 100%;
     aspect-ratio: 1/1;
+    background-size: contain;
+}
+
+
+.card.clubs img {
+    content: url(assets/clubs.svg);
+}
+
+.card.spades img {
+    content: url(assets/spades.svg);
+}
+
+.card.hearts img {
+    content: url(assets/hearts.svg);
+}
+
+.card.diamonds img {
+    content: url(assets/diamonds.svg);
 }
