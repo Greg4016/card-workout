@@ -26,7 +26,7 @@ body {
     height: 20%;
     aspect-ratio: 5/7;
 
-    border-radius: 20px;
+    border-radius: 1rem;
 }
 
 
@@ -54,7 +54,7 @@ body {
 
     outline: 3px dashed rgba(0, 0, 0, 0.2);
     outline-offset: -4px;
-    border-radius: 20px;
+    border-radius: 1rem;
 }
 
 
@@ -85,7 +85,7 @@ body {
     position: absolute;
 
     backface-visibility: hidden;
-    border-radius: 20px;
+    border-radius: 1rem;
 
     pointer-events: none;
 

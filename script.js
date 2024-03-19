@@ -103,11 +103,11 @@ function deal() {
                     c.card.children[1].append(temps[cval[1]-1].content.cloneNode(true))
                 }
 
-            })
+            }, { once : true })
             
         }, i * 100)
     })
 }
 
 
-deck.addEventListener('click', deal)
+deck.addEventListener('click', deal, { once : true })
