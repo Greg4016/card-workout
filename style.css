@@ -15,7 +15,7 @@ body {
     width: 25%;
     height: 100%;
 
-    background-color: blueviolet;
+    background-color: rgb(79, 237, 185);
 
     display: flex;
     justify-content: center;
@@ -26,7 +26,6 @@ body {
     height: 20%;
     aspect-ratio: 5/7;
 
-    background-color: white;
     border-radius: 20px;
 }
 
@@ -96,8 +95,13 @@ body {
 }
 
 
-.card-back {
-    background-color: black;
+.card-back, #deck {
+    background-color: white;
+    background-image: url(assets/back.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border: 2px #FF2C2C solid;
 }
 
 

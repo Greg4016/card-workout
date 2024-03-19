@@ -68,8 +68,6 @@ document.querySelectorAll('.card').forEach((el,i) => {
     el.style.left = deckPos.x - sils[i].getBoundingClientRect().x + 'px'
     el.style.top = deckPos.y - sils[i].getBoundingClientRect().y + 'px'
 
-    el.addEventListener('click', ev => ev.target.classList.add('flipped'))
-
     cards.push({
         card : el,
         sil : sils[i],
@@ -90,21 +88,26 @@ function deal() {
 
 
             c.value = cardValuesCopy.splice( Math.round(Math.random() * (cardValuesCopy.length-1)), 1 )[0]
-            cval = c.value.split(' ')
 
-            c.card.classList.add(cval[0])
+            c.card.addEventListener('click', () => {
+                c.card.classList.add('flipped')
 
-            c.card.querySelectorAll('span').forEach(el => el.innerText = cval[1])
-            if(cval[1] == 'A' || cval[1] == 'K' || cval[1] == 'Q' || cval[1] == 'J') {
-                c.card.children[1].append(temps[0].content.cloneNode(true))
-            } else {
-                c.card.children[1].append(temps[cval[1]-1].content.cloneNode(true))
-            }
+                cval = c.value.split(' ')
+
+                c.card.classList.add(cval[0])
+
+                c.card.querySelectorAll('span').forEach(el => el.innerText = cval[1])
+                if(cval[1] == 'A' || cval[1] == 'K' || cval[1] == 'Q' || cval[1] == 'J') {
+                    c.card.children[1].append(temps[0].content.cloneNode(true))
+                } else {
+                    c.card.children[1].append(temps[cval[1]-1].content.cloneNode(true))
+                }
+
+            })
+            
         }, i * 100)
     })
 }
 
 
 deck.addEventListener('click', deal)
-
-deal()
