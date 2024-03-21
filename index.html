@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="temps">
+
+        <template id="card">
+            <div class="card">
+                <div class="card-back"></div>
+                <div class="card-front">
+                    <div class="corners">
+                        <div class="corner" style="top: 3%; left: 3%;">
+                            <span></span>
+                            <img>
+                        </div>
+                        <div class="corner" style="top: 3%; right: 3%;">
+                            <span></span>
+                            <img>
+                        </div>
+                        <div class="corner" style="bottom: 3%; left: 3%; transform: rotate(180deg);">
+                            <span></span>
+                            <img>
+                        </div>
+                        <div class="corner" style="bottom: 3%; right: 3%; transform: rotate(180deg);">
+                            <span></span>
+                            <img>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
 
         <template id="symbols-n1">
             <div class="symbols n1">
@@ -154,10 +182,10 @@
                 </div>
             </div>
         </template>
-        
+
     </div>
-    
-    
+
+
     <div id="table">
         <div class="card-silhouette">
             <div class="card">
@@ -284,7 +312,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <div class="card-silhouette">
             <div class="card">
@@ -412,7 +440,7 @@
             </div>
         </div>
 
-        
+
         <div class="card-silhouette">
             <div class="card">
                 <div class="card-back"></div>
@@ -539,7 +567,7 @@
             </div>
         </div>
 
-        
+
         <div class="card-silhouette">
             <div class="card">
                 <div class="card-back"></div>
@@ -667,10 +695,12 @@
         </div>
     </div>
 
+    
     <div id="deal">
         <div id="deck"></div>
     </div>
     
     <script src="script.js"></script>
 </body>
+
 </html>

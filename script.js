@@ -98,9 +98,9 @@ function deal() {
 
                 c.card.querySelectorAll('span').forEach(el => el.innerText = cval[1])
                 if(cval[1] == 'A' || cval[1] == 'K' || cval[1] == 'Q' || cval[1] == 'J') {
-                    c.card.children[1].append(temps[0].content.cloneNode(true))
+                    c.card.children[1].append(temps[1].content.cloneNode(true))
                 } else {
-                    c.card.children[1].append(temps[cval[1]-1].content.cloneNode(true))
+                    c.card.children[1].append(temps[cval[1]].content.cloneNode(true))
                 }
 
             }, { once : true })
