@@ -55,35 +55,47 @@ let cardValues = [
     'spades Q',
     'spades J',
 ]
+let cardNum = 20
 
 let temps = document.querySelector('#temps').children
 
 let deck = document.querySelector('#deck')
 let deckPos = {x : deck.getBoundingClientRect().x, y : deck.getBoundingClientRect().y}
 
+let infobar = document.querySelector('#side #info')
+let infoOpen = false
+
+let table = document.querySelector('#table')
+
 cards = []
 
-let sils = document.querySelectorAll('.card-silhouette')
-document.querySelectorAll('.card').forEach((el,i) => {
-    el.style.left = deckPos.x - sils[i].getBoundingClientRect().x + 'px'
-    el.style.top = deckPos.y - sils[i].getBoundingClientRect().y + 'px'
+
+// Init cards
+for(let i = 0; i < cardNum; i++) {
+
+    let sil = table.appendChild(document.createElement('div'))
+    sil.classList.add('card-silhouette', 'card-sizing')
 
     cards.push({
-        card : el,
-        sil : sils[i],
-        value : ''
+        card : sil.appendChild(temps[0].content.firstElementChild.cloneNode(true)),
+        sil : sil,
+        value : '',
     })
-})
+
+    cards[i].card.style.left = deckPos.x + 'px'
+    cards[i].card.style.top = deckPos.y + 'px'
+}
 
 
+// Deal cards
 function deal() {
 
     let cardValuesCopy = [...cardValues]
 
     cards.forEach((c, i) => {
         setTimeout(() => {
-            c.card.style.left = 0
-            c.card.style.top = 0
+            c.card.style.left = c.sil.getBoundingClientRect().x + 'px'
+            c.card.style.top = c.sil.getBoundingClientRect().y + 'px'
             c.card.style.setProperty('pointer-events', 'all')
 
 
@@ -103,9 +115,25 @@ function deal() {
                     c.card.children[1].append(temps[cval[1]].content.cloneNode(true))
                 }
 
+                c.card.addEventListener('click', () => {
+                    if(infoOpen) {
+                        infobar.style.left = '100%'
+                    } else {
+                        infobar.style.left = '0'
+
+                    }
+                    infoOpen = !infoOpen
+                })
+
             }, { once : true })
+
+            setTimeout(() => {
+                c.card.style.position = 'unset'
+            }, 500)
             
         }, i * 100)
+
+        
     })
 }
 
